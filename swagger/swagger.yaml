@@ -1,0 +1,42 @@
+consumes:
+- application/json
+- application/xml
+- application/gob
+- application/x-gob
+definitions:
+  SomeData:
+    description: SomeData media type (default view)
+    example:
+      value: 3.855986e+18
+    properties:
+      value:
+        example: 3.855986e+18
+        format: int64
+        type: integer
+    required:
+    - value
+    title: 'Mediatype identifier: application/vnd.some.data+json; view=default'
+    type: object
+info:
+  version: ""
+paths:
+  /some:
+    get:
+      description: Get some value
+      operationId: some#get
+      produces:
+      - application/vnd.some.data+json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/SomeData'
+      summary: get some
+      tags:
+      - some
+produces:
+- application/json
+- application/xml
+- application/gob
+- application/x-gob
+swagger: "2.0"
